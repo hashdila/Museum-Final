@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: none;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Museum Feedback Form</h1>
+    <form id="feedbackForm">
+        <div class="form-group">
+            <label for="question1">Question 1</label>
+            <input type="text" id="question1" name="question1" placeholder="Your answer">
+        </div>
+        <div class="form-group">
+            <label for="question2">Question 2</label>
+            <input type="text" id="question2" name="question2" placeholder="Your answer">
+        </div>
+        <div class="form-group">
+            <label for="question3">Question 3</label>
+            <input type="text" id="question3" name="question3" placeholder="Your answer">
+        </div>
+        <!-- Add fields for other questions in the same format -->
+        <div class="form-group">
+            <label for="comments">Additional Comments</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Your comments"></textarea>
+        </div>
+        <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+    </form>
+    <p id="responseMessage" style="margin-top: 20px; color: green;"></p>
+</div>
+
+<script>
+    async function submitFeedback() {
+        const formData = {
+            question1: document.getElementById('question1').value,
+            question2: document.getElementById('question2').value,
+            question3: document.getElementById('question3').value,
+            // Add other questions here
+            comments: document.getElementById('comments').value
+        };
+
+        try {
+            const response = await fetch('/feedback/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                document.getElementById('responseMessage').textContent = 'Feedback submitted successfully!';
+                document.getElementById('feedbackForm').reset();
+            } else {
+                document.getElementById('responseMessage').textContent = 'Failed to submit feedback. Please try again.';
+            }
+        } catch (error) {
+            document.getElementById('responseMessage').textContent = 'An error occurred. Please try again later.';
+            console.error(error);
+        }
+    }
+</script>
+</body>
+</html>
