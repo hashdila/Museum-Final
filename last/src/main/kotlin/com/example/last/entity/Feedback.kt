@@ -16,8 +16,30 @@ data class Feedback(
     @Column(name = "question2")
     var question2: String,
 
+
     @Column(name = "question3")
     var question3: String,
+
+    @Column(name = "question4")
+    var question4: String,
+
+    @Column(name = "question5")
+    var question5: String,
+
+    @Column(name = "question6")
+    var question6: String,
+
+    @Column(name = "question7")
+    var question7: String,
+
+    @Column(name = "question8")
+    var question8: String,
+
+    @Column(name = "question9")
+    var question9: String,
+
+    @Column(name = "question10")
+    var question10: String,
 
     // Continue for other questions...
 
