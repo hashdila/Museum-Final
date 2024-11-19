@@ -108,5 +108,36 @@
         }
     }
 </script>
+
+<script>async function submitFeedback() {
+    const formData = {
+        question1: document.getElementById('question1').value,
+        question2: document.getElementById('question2').value,
+        question3: document.getElementById('question3').value,
+        comments: document.getElementById('comments').value
+    };
+
+    try {
+        const response = await fetch('/feedback/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            const savedFeedback = await response.json();
+            // Redirect to confirmation page with query parameters
+            const params = new URLSearchParams(formData).toString();
+            window.location.href = `/confirmation.html?${params}`;
+        } else {
+            alert('Failed to submit feedback. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error submitting feedback:', error);
+    }
+}
+</script>
 </body>
 </html>

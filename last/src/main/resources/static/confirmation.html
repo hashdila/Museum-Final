@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Confirmation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #007BFF;
+    }
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Thank You for Your Feedback!</h1>
+  <p>Your responses:</p>
+  <ul id="answers">
+    <!-- User responses will be dynamically displayed -->
+  </ul>
+</div>
+
+<script>
+  function displayAnswers() {
+    const params = new URLSearchParams(window.location.search);
+    const answers = Array.from(params.entries()).map(([key, value]) => `<li><strong>${key}:</strong> ${decodeURIComponent(value)}</li>`).join('');
+    document.getElementById('answers').innerHTML = answers;
+  }
+
+  // Display answers on page load
+  window.onload = displayAnswers;
+</script>
+</body>
+</html>
