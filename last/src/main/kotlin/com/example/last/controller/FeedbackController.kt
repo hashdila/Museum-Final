@@ -18,4 +18,11 @@ class FeedbackController(@Autowired private val feedbackService: FeedbackService
     fun getAllFeedbacks(): List<Feedback> {
         return feedbackService.getAllFeedbacks()
     }
+
+    @GetMapping("/admin/feedbacks")
+    fun getAllFeedbacksForAdmin(): List<Feedback> {
+        // Add proper admin validation logic if needed
+        return feedbackService.getAllFeedbacks()
+    }
+
 }
