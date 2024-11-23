@@ -44,6 +44,7 @@
     <thead>
     <tr>
       <th>ID</th>
+      <th>Name</th>
       <th>Question 1</th>
       <th>Question 2</th>
       <th>Question 3</th>
@@ -76,6 +77,7 @@
         table.innerHTML = feedbacks.map(f => `
                         <tr>
                             <td>${f.id}</td>
+                            <td>${f.name}</td>
                             <td>${f.question1}</td>
                             <td>${f.question2}</td>
                             <td>${f.question3}</td>

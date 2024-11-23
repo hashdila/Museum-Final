@@ -10,6 +10,9 @@ data class Feedback(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
+    @Column(name = "name")
+    var name: String,
+
     @Column(name = "question1")
     var question1: String,
 

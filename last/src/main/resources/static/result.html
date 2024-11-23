@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .result {
+            margin-bottom: 15px;
+        }
+        .result strong {
+            display: block;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Thank You for Your Feedback!</h1>
+    <div id="feedbackResults"></div>
+</div>
+
+<script>
+    // Parse URL query parameters
+    const params = new URLSearchParams(window.location.search);
+
+    // Questions and their corresponding keys
+    const questions = {
+        name: "Name",
+        question1: "1. How would you rate your overall experience interacting with our museum staff?",
+        question2: "2. How satisfied are you with the quality and presentation of the exhibits?",
+        question3: "3. If you attended a guided tour, how would you rate its usefulness and clarity? (1-5 scale)",
+        question4: "4. How accessible did you find the museum's facilities (e.g., elevators, ramps, signage)?",
+        question5: "5. Were you satisfied with the amenities provided (restrooms, seating areas, food options)?",
+        question6: "6. How would you rate the cleanliness and hygiene standards of the museum? (1-5 scale)",
+        question7: "7. Did you participate in any events/workshops? If yes, how was your experience?",
+        question8: "8. Did you find the digital and interactive exhibits engaging and user-friendly?",
+        question9: "9. What changes or additions would enhance your future visits?",
+        question10: "10. How likely are you to recommend this museum to friends or family? (1-10 scale)",
+        comments: "Additional Comments"
+    };
+
+    const feedbackResults = document.getElementById('feedbackResults');
+
+    // Display each question with its answer
+    params.forEach((value, key) => {
+        if (questions[key]) {
+            const resultDiv = document.createElement('div');
+            resultDiv.classList.add('result');
+            resultDiv.innerHTML = `<strong>${questions[key]}</strong>${value}`;
+            feedbackResults.appendChild(resultDiv);
+        }
+    });
+</script>
+</body>
+</html>
