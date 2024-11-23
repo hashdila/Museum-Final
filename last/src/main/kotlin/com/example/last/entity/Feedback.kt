@@ -13,6 +13,9 @@ data class Feedback(
     @Column(name = "name")
     var name: String,
 
+    @Column(name = "studentId")
+    var studentId: String,
+
     @Column(name = "question1")
     var question1: String,
 

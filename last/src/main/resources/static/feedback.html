@@ -79,6 +79,10 @@
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Full Name" required>
         </div>
+        <div class="form-group">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" name="studentId" placeholder="id" required>
+        </div>
 
         <!-- Feedback Questions -->
         <div class="form-group">
@@ -173,6 +177,7 @@
     async function submitFeedback() {
         const formData = {
             name: document.getElementById('name').value,
+            studentId: document.getElementById('studentId').value,
             question1: document.getElementById('question1').value,
             question2: document.getElementById('question2').value,
             question3: document.getElementById('question3').value,
