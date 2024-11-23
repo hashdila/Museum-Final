@@ -15,25 +15,57 @@
             max-width: 80%;
             margin: auto;
             background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         h1 {
             color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .result {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .result:last-child {
+            border-bottom: none;
         }
         .result strong {
             display: block;
+            font-size: 18px;
             font-weight: bold;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+        .result span {
+            font-size: 16px;
+            color: #555;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 <div class="container">
+
     <h1>Thank You for Your Feedback!</h1>
+    <button onclick="window.location.href='home.html'">Go to Home Page</button>
     <div id="feedbackResults"></div>
 </div>
 
@@ -64,7 +96,7 @@
         if (questions[key]) {
             const resultDiv = document.createElement('div');
             resultDiv.classList.add('result');
-            resultDiv.innerHTML = `<strong>${questions[key]}</strong>${value}`;
+            resultDiv.innerHTML = `<strong>${questions[key]}</strong><span>${value}</span>`;
             feedbackResults.appendChild(resultDiv);
         }
     });
