@@ -5,6 +5,9 @@ import com.example.last.repository.FeedbackRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
+
+// Hewa Pathiranage HAshendra Dilan Nawarathna
+//M24W0517
 @Service
 class FeedbackService(@Autowired private val feedbackRepository: FeedbackRepository) {
 

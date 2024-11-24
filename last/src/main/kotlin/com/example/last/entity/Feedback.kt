@@ -2,7 +2,8 @@ package com.example.last.entity
 
 import jakarta.persistence.*
 
-
+// Hewa Pathiranage HAshendra Dilan Nawarathna
+//M24W0517
 @Entity
 @Table(name = "feedbacks")
 data class Feedback(
